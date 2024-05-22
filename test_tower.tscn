@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://lhxud0f6bltm"]
+[gd_scene load_steps=4 format=3 uid="uid://bjql16chskhx8"]
 
 [ext_resource type="Script" path="res://TestTower.gd" id="1_gag6m"]
 [ext_resource type="Texture2D" uid="uid://bnfgntppmfwmx" path="res://assets/towerDefense_vector.svg" id="2_g7wv0"]
