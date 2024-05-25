@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkd1hl87v0tts"]
+
+[ext_resource type="Script" path="res://src/game/Components/PlaceableComponent.gd" id="1_odcgi"]
+
+[node name="PlaceableComponent" type="Node2D"]
+script = ExtResource("1_odcgi")
+layer = 32
+mask = 32
+
+[node name="PlacementArea" type="Area2D" parent="."]
+position = Vector2(0, -25)
+collision_layer = 32
+collision_mask = 32
+
+[connection signal="area_entered" from="PlacementArea" to="." method="_on_placement_area_area_entered"]
+[connection signal="area_exited" from="PlacementArea" to="." method="_on_placement_area_area_exited"]
+[connection signal="input_event" from="PlacementArea" to="." method="_on_placement_area_input_event"]

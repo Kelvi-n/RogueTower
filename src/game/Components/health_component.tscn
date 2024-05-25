@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://1yifh01v17vx"]
+
+[ext_resource type="Script" path="res://src/game/Components/HealthComponent.gd" id="1_52ru1"]
+[ext_resource type="Material" uid="uid://bpuvfteu6j4me" path="res://Unshaded.tres" id="2_qxx6d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jche4"]
+bg_color = Color(0.054902, 0, 0.00392157, 0.996078)
+border_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5s7q"]
+bg_color = Color(0.596078, 0, 0.168627, 1)
+
+[node name="HealthComponent" type="Node2D"]
+script = ExtResource("1_52ru1")
+max_health = 100
+
+[node name="HealthBarContainer" type="ReferenceRect" parent="."]
+unique_name_in_owner = true
+visibility_layer = 2
+material = ExtResource("2_qxx6d")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -2.0
+offset_right = 31.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthProgressBar" type="ProgressBar" parent="HealthBarContainer"]
+unique_name_in_owner = true
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_styles/background = SubResource("StyleBoxFlat_jche4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_l5s7q")
+value = 25.0
+show_percentage = false

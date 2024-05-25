@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxptcvntn8kc3"]
+
+[ext_resource type="Theme" uid="uid://df4tmh067xwhq" path="res://src/game/UI/main.tres" id="1_dg5jp"]
+[ext_resource type="Script" path="res://src/game/UI/canvas_layer.gd" id="1_t4wk6"]
+[ext_resource type="Texture2D" uid="uid://em2yj230ccaj" path="res://assets/ui/bg/0.png" id="2_qp3ce"]
+[ext_resource type="Texture2D" uid="uid://dk5gpj5kt2n8o" path="res://assets/ui/texture_buttons/Dummy.svg" id="3_6cmov"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_t4wk6")
+
+[node name="StartGameMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dg5jp")
+
+[node name="TextureRect" type="TextureRect" parent="StartGameMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qp3ce")
+
+[node name="MarginContainer" type="MarginContainer" parent="StartGameMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_right = 250
+theme_override_constants/margin_bottom = 250
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartGameMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 75
+alignment = 1
+
+[node name="Label" type="Label" parent="StartGameMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "SELECT STARTING PACK"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StartGameMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="TextureButton" type="TextureButton" parent="StartGameMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_6cmov")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton2" type="TextureButton" parent="StartGameMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_6cmov")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton3" type="TextureButton" parent="StartGameMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_6cmov")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="button_down" from="StartGameMenu/MarginContainer/VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_down" from="StartGameMenu/MarginContainer/VBoxContainer/HBoxContainer/TextureButton2" to="." method="_on_texture_button_button_down"]
+[connection signal="button_down" from="StartGameMenu/MarginContainer/VBoxContainer/HBoxContainer/TextureButton3" to="." method="_on_texture_button_button_down"]

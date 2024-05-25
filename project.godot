@@ -11,5 +11,22 @@ config_version=5
 [application]
 
 config/name="Rogue Tower Defence"
+run/main_scene="res://src/maps/level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MenuScenes="*res://menu_scenes.gd"
+
+[display]
+
+window/size/viewport_width=2560
+window/size/viewport_height=1440
+window/size/mode=2
+window/size/borderless=true
+
+[layer_names]
+
+2d_physics/layer_1="Enemy"
+2d_physics/layer_2="Projectile"
