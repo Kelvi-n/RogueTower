@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://l13h7q2y8ax7"]
+
+[ext_resource type="PackedScene" uid="uid://bjql16chskhx8" path="res://src/towers/towers/test_tower.tscn" id="1_omqn0"]
+[ext_resource type="Script" path="res://src/maps/level.gd" id="1_sihk6"]
+[ext_resource type="PackedScene" uid="uid://cxh0emrp72xt8" path="res://src/maps/map.tscn" id="2_xxb4g"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_sihk6")
+
+[node name="Map" parent="." instance=ExtResource("2_xxb4g")]
+
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="TestTower" parent="Towers" instance=ExtResource("1_omqn0")]
+position = Vector2(768, 94)
+
+[node name="TestTower2" parent="Towers" instance=ExtResource("1_omqn0")]
+position = Vector2(767, 52)
+
+[node name="TestTower3" parent="Towers" instance=ExtResource("1_omqn0")]
+position = Vector2(767, 10)
+
+[node name="TestTower4" parent="Towers" instance=ExtResource("1_omqn0")]
+position = Vector2(764, -29)
+
+[node name="TestTower5" parent="Towers" instance=ExtResource("1_omqn0")]
+position = Vector2(764, -69)
+
+[node name="TestTower6" parent="Towers" instance=ExtResource("1_omqn0")]
+position = Vector2(763, -108)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(500, -50)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0

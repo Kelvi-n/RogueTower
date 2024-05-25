@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dvjb2yt6lcuw6"]
+
+[ext_resource type="Texture2D" uid="uid://bnfgntppmfwmx" path="res://assets/towerDefense_vector.svg" id="1_2g1g0"]
+
+[resource]
+resource_local_to_scene = true
+atlas = ExtResource("1_2g1g0")
+region = Rect2(1217, 705, 64, 64)

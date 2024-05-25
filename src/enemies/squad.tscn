@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://37ky2hfqxdux"]
+
+[ext_resource type="Script" path="res://src/enemies/Squad.gd" id="1_4d6ij"]
+[ext_resource type="PackedScene" uid="uid://1yifh01v17vx" path="res://src/game/Components/health_component.tscn" id="2_bmqpj"]
+[ext_resource type="PackedScene" uid="uid://cqod4o8td4b6e" path="res://src/game/Components/unit_component.tscn" id="3_vugfm"]
+[ext_resource type="Script" path="res://src/enemies/PathingComponent.gd" id="4_dnqle"]
+
+[node name="Squad" type="StaticBody2D"]
+script = ExtResource("1_4d6ij")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_bmqpj")]
+position = Vector2(0, -31)
+scale = Vector2(0.5, 0.5)
+
+[node name="UnitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_vugfm")]
+health_component = NodePath("../HealthComponent")
+
+[node name="Marker2D" type="Marker2D" parent="UnitComponent"]
+
+[node name="Marker2D2" type="Marker2D" parent="UnitComponent"]
+position = Vector2(-22, -15)
+
+[node name="Marker2D3" type="Marker2D" parent="UnitComponent"]
+position = Vector2(-20, 26)
+
+[node name="Marker2D4" type="Marker2D" parent="UnitComponent"]
+position = Vector2(21, 25)
+
+[node name="Marker2D5" type="Marker2D" parent="UnitComponent"]
+position = Vector2(25, -16)
+
+[node name="PathingComponent" type="Node2D" parent="."]
+script = ExtResource("4_dnqle")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathingComponent"]
+
+[connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]
+[connection signal="health_zero" from="HealthComponent" to="." method="_on_health_component_health_zero"]
+[connection signal="just_hit" from="UnitComponent" to="." method="_on_unit_component_just_hit"]

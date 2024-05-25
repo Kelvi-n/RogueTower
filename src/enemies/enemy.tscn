@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bx4sf0vdxo3co"]
+
+[ext_resource type="Texture2D" uid="uid://bnfgntppmfwmx" path="res://assets/towerDefense_vector.svg" id="1_6n3u7"]
+[ext_resource type="Script" path="res://src/enemies/enemy.gd" id="1_u47nb"]
+[ext_resource type="PackedScene" uid="uid://xrfwiblqjc40" path="res://src/game/Components/hitbox_component.tscn" id="2_8a6dr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq6g4"]
+resource_local_to_scene = true
+atlas = ExtResource("1_6n3u7")
+region = Rect2(961, 641, 64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1cq1a"]
+radius = 12.0416
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_u47nb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+texture = SubResource("AtlasTexture_gq6g4")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_8a6dr")]
+layer = 1
+mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_1cq1a")
+
+[connection signal="just_hit" from="HitboxComponent" to="." method="_on_hitbox_component_just_hit"]
